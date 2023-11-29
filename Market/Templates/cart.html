@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{%load static  %}
+
+{%block body%}
+<div class="container"> 
+<table class="table">
+    <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>price</th>
+                <th>Image</th>
+                <th>Pay</th>
+            </tr>
+    </thead>
+    {% for products in data %}
+    <tbody>
+        <tr>
+            <td>{{ products.id }}</td>
+            <td >{{ products.name }}</td>
+            <td>{{ products.price }}</td>
+            <td><img src="media/{{ products.image }}" alt=""{{ productss.name }} width="100"></td>
+            <td>
+                <a href="#" class="btn btn-warning">Make payment</a>
+            </td>
+        </tr>
+    </tbody>{% endfor %}
+</table>
+</div>
+
+	{%endblock%}

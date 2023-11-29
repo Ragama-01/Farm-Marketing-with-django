@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{%load static  %}
+
+{%block body%}
+
+<div class="row">
+    {%for products in data %}
+    <div class="col-lg-4 col-md-6 text-center">
+        <div class="single-product-item">
+            <div class="product-image">
+                <img src="media/{{ products.image }}" alt="{{ products.name }}"  width="100"></a>
+            </div>
+            <h3>{{products.name}}</h3>
+            <h2>{{products.category}}</h2>
+            <p class="product-price" id="price"><span>Per Kg</span> {{products.price}} </p>
+            <a href="{%url 'Market:purchase'%}" class="cart-btn" id="addtocartbtn"><i class="fas fa-shopping-cart"></i> Purchase</a>
+                    
+        </div>
+    </div>
+    
+    {%endfor%}
+</div>
+
+
+{%endblock%}
+
+
+<!-- {% for products in data %}
+<div class="card" style="width: 18rem;">
+    <img src="media/{{products.image}}" class="card-img-top" alt="{{products.name}}">
+    <div class="card-body">
+      <h5 class="card-title">{{ products.name }}</h5>
+      <p class="card-text">{{ products.price}}</p>
+      <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Make payment</a>
+    </div>
+  </div>
+  {%endfor%} -->

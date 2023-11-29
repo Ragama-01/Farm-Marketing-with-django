@@ -1,0 +1,36 @@
+
+    
+<h2>Edit details</h2>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+  {% csrf_token %}
+
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+      <input type="text" name="name" id="form5Example1" class="form-control" value="{{product.name}}" required/>
+      <label class="form-label" for="form5Example1">name</label>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="Category" name="email" id="form5Example2" class="form-control" value="{{product.Category}}" required/>
+      <label class="form-label" for="form5Example2">Category</label>
+    </div>
+  
+    <!-- phone input -->
+    <div class="form-outline mb-4">
+        <input type="text" name="price" id="form5Example1" class="form-control" value="{{product.price}}" required/>
+        <label class="form-label" for="form5Example1">price</label>
+      </div>
+    <!-- image input -->
+      <div class="form-outline mb-4">
+        <input type="file" accept="image/png,image/jpeg,image/gif" name="image " id="form5Example1" class="form-control" required/>
+        <img src="/media/{{product.image}}" alt="{{product.name}}">
+        <label class="form-label" for="form5Example1"></label>
+      </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+  </form>
+
+  

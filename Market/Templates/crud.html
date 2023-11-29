@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{%load static  %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styling.css' %}">
+   
+{% endblock %}
+{%block body%}
+
+
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+
+        <h2>My Products</h2>
+        <table class="table">
+            <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+            </thead>
+            {% for products in data %}
+            <tbody>
+                <tr>
+                    <td>{{ products.id }}</td>
+                    <td >{{ products.name }}</td>
+                    <td>{{ products.category }}</td>
+                    <td>{{ products.price }}</td>
+                    <td><img src="media/{{ products.image }}" alt=""{{ students.name }} width="100"></td>
+                    <td>
+                        <a href="/edit/{{ products.id }}" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/delete/{{ products.id }}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+        <h2>Add New Products</h2>
+        <form action="/insertproduct" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+          
+              <!-- Name input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="name" id="form5Example1" class="form-control" />
+                <label class="form-label" for="form5Example1">Name</label>
+              </div>
+            
+              <!-- Category input -->
+              <div class="form-outline mb-4">
+                <input type="text" name="Category" id="form5Example2" class="form-control" />
+                <label class="form-label" for="form5Example2">Category</label>
+              </div>
+            
+              <!-- price input -->
+              <div class="form-outline mb-4">
+                  <input type="text" name="price" id="form5Example1" class="form-control" />
+                  <label class="form-label" for="form5Example1">Price</label>
+                </div>
+
+             <!-- image input -->
+                <div class="form-outline mb-4">
+                  <input type="file" accept="image/png,image/jpeg,image/gif" name="image " id="form5Example1" class="form-control" />
+                  <label class="form-label" for="form5Example1"></label>
+                </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="databtn">Submit</button>
+            </form>
+    </div>
+
+</div>
+
+{%endblock%}
